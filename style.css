@@ -1,0 +1,441 @@
+/*
+Theme Name: Techmation Theme
+Author: Your Name
+Description: A custom theme for Techmation Engineering Limited.
+Version: 1.0
+*/
+
+/* --- ১. হেডার লেআউট (Desktop First) --- */
+.site-header {
+    background-color: #333; /* হেডারের ব্যাকগ্রাউন্ড কালার */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* লোগো বামে, মেনু ডানে */
+    align-items: center;
+    flex-wrap: wrap; /* মোবাইলে উপাদানগুলো যেন নিচে নামতে পারে */
+    position: relative;
+}
+
+/* লোগো সাইজ */
+.logo-area .custom-logo {
+    max-height: 60px;
+    width: auto;
+}
+
+/* পিসিতে মোবাইল বাটন লুকানো থাকবে */
+#mobile-menu-btn {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+/* পিসি মেনু ডিজাইন */
+.my-custom-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* মেনু পাশাপাশি থাকবে */
+    gap: 20px;
+}
+
+.my-custom-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* --- ২. মোবাইল রেস্পন্সিভ (Mobile View) --- */
+@media (max-width: 768px) {
+    
+    /* বাটন দৃশ্যমান হবে */
+    #mobile-menu-btn {
+        display: block;
+    }
+
+    /* মেনু কন্টেইনার পুরো স্ক্রিন জুড়ে নেবে */
+    .main-navigation {
+        width: 100%; /* পুরো জায়গা নেবে যাতে নিচে নামে */
+        display: none; /* শুরুতে লুকানো থাকবে (JS দিয়ে অন হবে) */
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 10px;
+    }
+    
+    /* মেনু শো করলে সেটি যেন ব্লক আকারে আসে */
+    .main-navigation.active {
+        display: block;
+    }
+
+    /* মেনু আইটেমগুলো নিচে নিচে আসবে */
+    .my-custom-menu ul {
+        flex-direction: column; 
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* পুরো সাইটের বডি ফন্ট */
+body {
+    font-family: 'Open Sans', sans-serif; /* পড়ার জন্য আরামদায়ক */
+    color: #444;
+    line-height: 1.6;
+}
+
+/* শিরোনাম বা হেডিং ফন্ট */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif; /* দেখতে মডার্ন ও বোল্ড */
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* লিংকের ডিফল্ট স্টাইল */
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* মেনুর বুলেট পয়েন্ট রিমুভ করা */
+.my-custom-menu ul {
+    list-style: none; /* গোল গোল ডট মুছে ফেলবে */
+    padding: 0;
+    margin: 0;
+    display: flex; /* মেনুগুলোকে পাশাপাশি আনবে */
+    gap: 20px; /* মাঝখানে ফাঁকা জায়গা তৈরি করবে */
+}
+
+/* মেনু লিংকের ডিজাইন */
+.my-custom-menu a {
+    text-decoration: none; /* নিচের দাগ (underline) মুছে ফেলবে */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* মাউস ধরলে রং পরিবর্তন (Hover Effect) */
+.my-custom-menu a:hover {
+    color: #ff9900; /* কমলা রং হবে */
+}
+
+/* ছবি যেন কন্টেইনারের বাইরে না যায় */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /* একটু রাউন্ড শেপ করার জন্য */
+}
+
+/* কন্টেইনার যা কন্টেন্ট এবং সাইডবারকে ধারণ করবে */
+.site-content {
+    display: flex;       /* পাশাপাশি আনার জন্য */
+    flex-wrap: wrap;     /* মোবাইলে যেন নিচে নিচে চলে যায় */
+    max-width: 1100px;
+    margin: 0 auto;      /* মাঝখানে রাখার জন্য */
+    gap: 30px;           /* মাঝখানে ফাঁকা জায়গা */
+}
+
+/* বাম পাশের মূল কন্টেন্ট এরিয়া */
+.content-area {
+    flex: 3;             /* ৩ ভাগ জায়গা নেবে (প্রায় ৭০%) */
+}
+
+/* ডান পাশের সাইডবার এরিয়া */
+.widget-area {
+    flex: 1;             /* ১ ভাগ জায়গা নেবে (প্রায় ৩০%) */
+}
+
+/* উইজেট ডিজাইন সুন্দর করা */
+.widget {
+    margin-bottom: 30px;
+}
+.widget-title {
+    font-size: 18px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* মোবাইল রেস্পন্সিভনেস: মোবাইলে সাইডবার নিচে চলে যাবে */
+@media (max-width: 768px) {
+    .site-content {
+        flex-direction: column;
+    }
+}
+
+/* সাইডবার এরিয়া ডিজাইন */
+.widget-area {
+    background: #f9f9f9; /* হালকা ধূসর ব্যাকগ্রাউন্ড */
+    padding: 20px;
+    border-radius: 8px; /* কোণাগুলো একটু গোল হবে */
+    border: 1px solid #eee;
+}
+
+/* প্রতিটি উইজেটের ডিজাইন */
+.widget {
+    margin-bottom: 40px; /* এক উইজেট থেকে আরেকটার দূরত্ব */
+}
+
+/* উইজেট টাইটেল (যেমন: Search, Categories) */
+.widget-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase; /* সব বড় হাতের লেখা হবে */
+    border-bottom: 2px solid #ff9900; /* নিচে টেকমেশনের ব্র্যান্ড কালার */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* উইজেটের ভেতরের লিংকগুলো */
+.widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd; /* প্রতিটি লিংকের নিচে ড্যাশ দাগ */
+}
+
+.widget ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: 0.3s;
+}
+
+.widget ul li a:hover {
+    color: #ff9900;
+    padding-left: 5px; /* মাউস নিলে একটু ডানে সরবে */
+}
+
+
+
+/* --- হিরো সেকশন ডিজাইন --- */
+.hero-section {
+    background-color: #2c3e50; /* গাঢ় নীল ব্যাকগ্রাউন্ড */
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* বাটন ডিজাইন */
+.btn-primary {
+    background-color: #ff9900; /* টেকশেমশন ব্র্যান্ড কালার */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e68a00;
+}
+
+/* --- সার্ভিস সেকশন ডিজাইন --- */
+.services-section {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* গ্রিড লেআউট (পাশাপাশি বক্স আনার জন্য) */
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* মোবাইলে নিচে নিচে নামবে */
+}
+
+.service-box {
+    background: white;
+    padding: 30px;
+    flex: 1; /* সমান ভাগে ভাগ হবে */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* হালকা শ্যাডো */
+    min-width: 250px;
+}
+
+.service-box h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+
+
+/* --- ফুটার ডিজাইন --- */
+.site-footer {
+    background-color: #222; /* কালো বা গাঢ় ধূসর */
+    color: #bbb; /* লেখার রং হালকা ধূসর */
+    padding-top: 50px;
+    margin-top: 50px;
+}
+ 
+.site-footer h1, h2, h3 {
+    color: #bbb; /* লেখার রং হালকা ধূসর */
+
+}
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex; /* পাশাপাশি আনার জন্য */
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 20px 40px 20px;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1; /* ৩টি কলাম সমান জায়গা পাবে */
+    min-width: 250px;
+}
+
+/* ফুটার টাইটেল */
+.footer-title {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff9900; /* ব্র্যান্ড কালার */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* ফুটারের লিংকগুলো */
+.footer-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-widget ul li a {
+    color: #bbb;
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footer-widget ul li a:hover {
+    color: #ff9900;
+}
+
+/* কপিরাইট এরিয়া */
+.copyright-area {
+    background-color: #111; /* আরও গাঢ় কালো */
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* সোশ্যাল আইকন এরিয়া */
+.social-icons p {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px; /* আইকনগুলোর মাঝখানে ফাঁকা */
+    font-size: 24px;    /* আইকনের সাইজ বড় করা */
+    color: #bbb;        /* আইকনের সাধারণ রং */
+}
+
+/* মাউস নিলে কালার চেঞ্জ হবে */
+.social-icons a:hover {
+    color: #ff9900; /* ব্র্যান্ড কালার */
+    transform: translateY(-3px); /* একটু উপরে লাফ দেবে */
+}
+
+/* ডায়নামিক কন্টেন্ট এরিয়া */
+.dynamic-content-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.dynamic-content-section h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-top: 40px;
+}
+
+/* গুটেনবার্গ ব্লকের ইমেজ যেন ভেঙে না যায় */
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- কন্টাক্ট ফর্ম ডিজাইন --- */
+
+/* ইনপুট ফিল্ডগুলো সুন্দর করা */
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #f9f9f9;
+}
+
+/* ফোকাস করলে বর্ডার কালার হবে */
+.wpcf7 input:focus,
+.wpcf7 textarea:focus {
+    border-color: #ff9900;
+    outline: none;
+    background: #fff;
+}
+
+/* সাবমিট বাটন ডিজাইন */
+.wpcf7 input[type="submit"] {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.wpcf7 input[type="submit"]:hover {
+    background-color: #e68a00;
+}
+
+/* মোবাইল রেস্পন্সিভনেস */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* মোবাইলে নিচে নিচে আসবে */
+    }
+}
